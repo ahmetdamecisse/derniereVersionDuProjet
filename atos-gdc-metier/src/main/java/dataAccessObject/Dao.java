@@ -31,8 +31,10 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
@@ -42,9 +44,18 @@ import javax.persistence.PersistenceContext;
  *
  * @author Ahmet Dame CISSE
  */
-@Singleton(mappedName = "dataAccessObject")
+@Singleton(mappedName = "dataAccessObjectDistant")
+@Startup
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 public class Dao implements IdaoLocal, IdaRemote, Serializable {
+
+    @PostConstruct
+  public void initialiser() {
+    System.out.println("Initialisation du singleton DAO");
+  }
+    
+    public Dao() {
+    }
     @PersistenceContext(unitName = "atos-gd-UP")
     private EntityManager em;
     @Resource
@@ -63,7 +74,7 @@ public class Dao implements IdaoLocal, IdaRemote, Serializable {
         try {
             return em.createQuery("select ut from Utilisateur ut").getResultList();
         } catch (Throwable th) {
-            throw new AtoSgdcException("Erreur", th);
+            throw new AtoSgdcException("tous les utilisateurs", th, 1);
         }
     }
 // @Override

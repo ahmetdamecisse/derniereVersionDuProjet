@@ -10,5 +10,6 @@
     <module>atos-gdc-ear</module>
     <module>atos-gdc-metier</module>
     <module>atos-gdc-web</module>
+    <module>Clientgdcatos-dao</module>
   </modules>
 </project>

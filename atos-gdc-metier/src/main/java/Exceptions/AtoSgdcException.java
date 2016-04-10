@@ -27,16 +27,19 @@ public class AtoSgdcException  extends RuntimeException implements Serializable{
         this.code = code;
     }
 
-    public AtoSgdcException(String message) {
+    public AtoSgdcException(String message, int code) {
         super(message);
+        setCode(code);
     }
 
-    public AtoSgdcException(String message, Throwable cause) {
+    public AtoSgdcException(String message, Throwable cause, int code) {
         super(message, cause);
+        setCode(code);
     }
 
-    public AtoSgdcException(Throwable cause) {
+    public AtoSgdcException(Throwable cause, int code) {
         super(cause);
+        setCode(code);
     }
 
     public AtoSgdcException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
