@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import entites.*;
+import javax.inject.Inject;
 
 /**
  *
@@ -19,7 +20,7 @@ import entites.*;
 @Named(value = "controlUtilisateur")
 @SessionScoped
 public class controlUtilisateur implements Serializable {
-    @EJB
+    @Inject
     private dataAccessObject.IdaoLocal dao;
 
     /**

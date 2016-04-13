@@ -35,6 +35,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
@@ -44,6 +45,7 @@ import javax.persistence.PersistenceContext;
  *
  * @author Ahmet Dame CISSE
  */
+@Stateless
 @Singleton(mappedName = "dataAccessObjectDistant")
 @Startup
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
