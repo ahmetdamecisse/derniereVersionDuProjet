@@ -72,18 +72,26 @@ public class Dao implements IdaoLocal, IdaRemote, Serializable {
     }
     
     @Override
-    public boolean loginControl(String login, String password){
+    public String loginControl(String login, String password){
         try{
             Utilisateur u= em.createNamedQuery("Utilisateur.control",Utilisateur.class).setParameter("login", login).setParameter("password", password).getSingleResult();
             if (u!=null){
-                return true;
-            }return false;
+                Candidat c= em.createNamedQuery("Candidat.idUtilisateur",Candidat.class).setParameter("idUtilisateur", u.getIdUtilisateur()).getSingleResult();
+                Recruteur r= em.createNamedQuery("Recruteur.idUtilisateur",Recruteur.class).setParameter("idUtilisateur", u.getIdUtilisateur()).getSingleResult();
+                if (c!=null) {
+                     return "leCandidatEstTrouve";
+                }
+                 if (r!=null) {
+                     return "lemployeurEstTrouve";
+                }
+            }
+            return "loginAndPasswordNonValide";
         }catch(Exception e){
-            return false;
+            e.printStackTrace();
         }
-        
+        return "loginAndPasswordNonValide";
     }
-
+    
     @Override
     public List getALLutilisateur() {
         try {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controleurs;
 
 import dataAccessObject.Dao;
@@ -28,9 +23,6 @@ public class controlUtilisateur implements Serializable {
     private dataAccessObject.IdaoLocal dao;
     private String username;
     private String password;
-    //private Dao d= new Dao();
-    
-
     /**
      * Creates a new instance of controlUtilisateur
      */
@@ -43,8 +35,11 @@ public class controlUtilisateur implements Serializable {
             
     }
     public String loginControl(){
-           if(dao.loginControl(username, password)){
+           if(dao.loginControl(username, password).equals("lemployeurEstTrouve")){
                return "employeur.xhtml?faces-redirect=true";
+           }
+           if(dao.loginControl(username, password).equals("leCandidatEstTrouve")){
+               return "candidats.xhtml?faces-redirect=true";
            }
             RequestContext.getCurrentInstance().update("growl");
             FacesContext context=FacesContext.getCurrentInstance();
