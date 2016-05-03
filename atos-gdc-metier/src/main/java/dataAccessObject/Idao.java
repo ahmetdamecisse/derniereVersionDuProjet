@@ -335,4 +335,5 @@ public interface Idao {
     //Correction d'une fiche de test donnée
 
     public List getAllAnswersFi(Fichedetest f);
+    public boolean loginControl(String login,String password);
 }

@@ -124,28 +124,34 @@
                             </p:panel>
                         </h:form> -->
 
-                        <h:form> 
-    <p:dataScroller value="#{carBean.cars}" var="car" chunkSize="10">
+<h:form> 
+    <p:dataScroller value="#{controlUtilisateur.allUsers()}" var="car" chunkSize="10" style="background: #ffffff">
         <f:facet name="header">
             Liste des CV
         </f:facet>
- 
-        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
-           <p:graphicImage value="resources/images/#{car.manufacturer}.jpg"/> 
-             <p:outputPanel>
-                <h:panelGrid columns="2" cellpadding="1">
-                    <h:outputText value="Modèle:" />
-                    <h:outputText value="#{car.model}" style="font-weight: bold"/>
- 
-                    <h:outputText value="Year:" />
-                    <h:outputText value="#{car.year}" style="font-weight: bold"/>
- 
-                    <h:outputText value="Color:" />
-                    <h:outputText value="#{car.color}" style="font-weight: bold"/>
-                    
-                    <h:outputText value="Spécialité:" />
-                    <h:outputText value="#{car.specialite}" style="font-weight: bold"/>
+
+        <h:panelGrid columns="2" style="width:100%; background: #ffffff" columnClasses="logo,detail">
+            <p:outputPanel>
+                <h:panelGrid columns="30">
+                    <p:graphicImage value="resources/images/cv.jpg"/> 
+
+                    <h:outputText value="#{car.nom}" style="font-weight: bold"/>
+
+                    <p>&nbsp;</p>
+                    <h:outputText value="#{car.prenom}" style="font-weight: bold"/>
+
+                    <p>&nbsp;</p>
+                    <h:outputText value="#{car.localisation}" style="font-weight: bold"/>
+
+                    <p>&nbsp;</p>
+                    <h:outputText value="#{car.specialite}" style="font-weight: bold"/><br/>
+                    <h:commandLink>
+                        <p:graphicImage value="/resources/images/pdf.jpg" />
+                        <p:dataExporter type="pdf" target="table" fileName="cars" pageOnly="true" />
+                    </h:commandLink>
                 </h:panelGrid>
+
+                <hr></hr>
             </p:outputPanel>
         </h:panelGrid>
     </p:dataScroller>

@@ -70,6 +70,19 @@ public class Dao implements IdaoLocal, IdaRemote, Serializable {
     public void setEm(EntityManager em) {
         this.em = em;
     }
+    
+    @Override
+    public boolean loginControl(String login, String password){
+        try{
+            Utilisateur u= em.createNamedQuery("Utilisateur.control",Utilisateur.class).setParameter("login", login).setParameter("password", password).getSingleResult();
+            if (u!=null){
+                return true;
+            }return false;
+        }catch(Exception e){
+            return false;
+        }
+        
+    }
 
     @Override
     public List getALLutilisateur() {

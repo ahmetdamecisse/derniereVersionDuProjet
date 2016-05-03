@@ -63,16 +63,16 @@
                     <div class="col-sm-3">
 
                     </div>
-                    <div class="col-sm-6"> 
+                    <div class="col-sm-6">
+                        <p:growl id="growl" sticky="true" showDetail="true" />
                         <h:form  class="well">
-                            <p:growl id="msgs" showDetail="true" /> 
                             <p:panel id="basic1" header="Se connecter" style="margin-bottom:20px">
                                 <h:panelGrid columns="2" cellpadding="10">
                                     <h:form> <br/> 
-                                        <p:inputText value="#{userWizard.user.adress}" required="true" label="adress" placeholder="Adresse mail" style="width: 400px; min-height: 40px"/><br/><br/>
-                                        <p:password id="pwd2" value="#{passwordView.password5}" label="Password 2" required="true" placeholder="Mot de passe" style="width: 400px; min-height: 40px"/><br/> <br/>
+                                        <p:inputText value="#{controlUtilisateur.username}" required="true" placeholder="Adresse mail" style="width: 400px; min-height: 40px"/><br/><br/>
+                                        <p:password id="pwd2" value="#{controlUtilisateur.password}" required="true" placeholder="Mot de passe" style="width: 400px; min-height: 40px"/><br/> <br/>
                                         <div class="well">
-                                            <p:commandButton value="Connectez-vous maintenant" style="min-width: 60px"/>
+                                            <p:commandButton value="Connectez-vous maintenant" action="#{controlUtilisateur.loginControl()}" style="min-width: 60px"/>
                                         </div> <br/>
                                         <div class="row">
                                             <div class="col-sm-6">
