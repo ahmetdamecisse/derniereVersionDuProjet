@@ -52,10 +52,10 @@ import javax.persistence.PersistenceContext;
 public class Dao implements IdaoLocal, IdaRemote, Serializable {
 
     @PostConstruct
-  public void initialiser() {
-    System.out.println("Initialisation du singleton DAO");
-  }
-    
+    public void initialiser() {
+        System.out.println("Initialisation du singleton DAO");
+    }
+
     public Dao() {
     }
     @PersistenceContext(unitName = "atos-gd-UP")
@@ -70,28 +70,28 @@ public class Dao implements IdaoLocal, IdaRemote, Serializable {
     public void setEm(EntityManager em) {
         this.em = em;
     }
-    
+
     @Override
-    public String loginControl(String login, String password){
-        try{
-            Utilisateur u= em.createNamedQuery("Utilisateur.control",Utilisateur.class).setParameter("login", login).setParameter("password", password).getSingleResult();
-            if (u!=null){
-                Candidat c= em.createNamedQuery("Candidat.idUtilisateur",Candidat.class).setParameter("idUtilisateur", u.getIdUtilisateur()).getSingleResult();
-                Recruteur r= em.createNamedQuery("Recruteur.idUtilisateur",Recruteur.class).setParameter("idUtilisateur", u.getIdUtilisateur()).getSingleResult();
-                if (c!=null) {
-                     return "leCandidatEstTrouve";
+    public String loginControl(String login, String password) {
+        try {
+            Utilisateur u = em.createNamedQuery("Utilisateur.control", Utilisateur.class).setParameter("login", login).setParameter("password", password).getSingleResult();
+            if (u != null) {
+                Candidat c = em.createNamedQuery("Candidat.control", Candidat.class).setParameter("idUtilisateur", u.getIdUtilisateur()).getSingleResult();
+                Recruteur r = em.createNamedQuery("Recruteur.control", Recruteur.class).setParameter("idUtilisateur", u.getIdUtilisateur()).getSingleResult();
+                if (c != null) {
+                    return "leCandidatEstTrouve";
                 }
-                 if (r!=null) {
-                     return "lemployeurEstTrouve";
+                if (r != null) {
+                    return "lemployeurEstTrouve";
                 }
             }
             return "loginAndPasswordNonValide";
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "loginAndPasswordNonValide";
     }
-    
+
     @Override
     public List getALLutilisateur() {
         try {
@@ -100,16 +100,7 @@ public class Dao implements IdaoLocal, IdaRemote, Serializable {
             throw new AtoSgdcException("tous les utilisateurs", th, 1);
         }
     }
-// @Override
-//    public List getALLutilisateur() {
-//        try {
-//            javax.persistence.criteria.CriteriaQuery cq=getEm().getCriteriaBuilder().createQuery();
-//            cq.select(cq.from(Utilisateur.class));
-//            return getEm().createQuery(cq).getResultList();
-//        } catch (Throwable th) {
-//            throw new AtoSgdcException("Erreur", th);
-//        }
-//    }
+
     @Override
     public Utilisateur getUtilisateurById(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -36,9 +36,11 @@ public class controlUtilisateur implements Serializable {
     }
     public String loginControl(){
            if(dao.loginControl(username, password).equals("lemployeurEstTrouve")){
+               System.out.println("lemployeurEstTrouve");
                return "employeur.xhtml?faces-redirect=true";
            }
-           if(dao.loginControl(username, password).equals("leCandidatEstTrouve")){
+           else if(dao.loginControl(username, password).equals("leCandidatEstTrouve")){
+                System.out.println("leCandidatEstTrouve");
                return "candidats.xhtml?faces-redirect=true";
            }
             RequestContext.getCurrentInstance().update("growl");

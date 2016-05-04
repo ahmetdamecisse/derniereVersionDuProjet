@@ -336,6 +336,6 @@ public interface Idao {
 
     public List getAllAnswersFi(Fichedetest f);
     
-    //login et le mot de passe existent
+    //login et le mot de passe pour connaitre si un candidat s'est connecté ou un employeur.
     public String loginControl(String login,String password);
 }

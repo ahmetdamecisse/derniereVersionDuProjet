@@ -55,56 +55,83 @@
             <div style="background-color: #ffffff" >
                 <div class="row content panel-heading">
                     <!--rédaction CV début -->
-                    <p style="font-style: italic; color:#0073a0; text-align: center; font-size: 30px">Rédigez votre CV.</p>
-                    <h:form>     
+                    <h:form>
+
                         <p:growl id="growl" sticky="true" showDetail="true"/>
-                        <p:wizard flowListener="#{profilCandidatController.onFlowProcess}">
-                            <p:tab id="personal" title="Personal">
-                                <p:panel header="Personal Details">
+
+                        <p:wizard flowListener="#{controlRedigerCV.onFlowProcess}">
+                            <p:tab id="personal" title="Informations personnelles">
+                                <p:panel header="Identité">
                                     <p:messages />
                                     <h:panelGrid columns="2" columnClasses="label, value">
-                                        <h:outputText value="Firstname: *" />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.prenom}" required="true" label="Firstname"/>
+                                        <h:outputText value="Nom: *" style="color: #282828" />
+                                        <p:inputText value="#{controlRedigerCV.user.nom}" required="true" label="Nom"/>
 
-                                        <h:outputText value="Lastname: *" />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.nom}" required="true" label="Lastname"/>
+                                        <h:outputText value="Prénom: *" style="color: #282828" />
+                                        <p:inputText value="#{controlRedigerCV.user.prenom}" required="true" label="Prénom"/>
 
-                                        <h:outputText value="Age: " />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.idUtilisateur}" />
+                                        <h:outputText value="Adresse: *" style="color: #282828" />
+                                        <p:inputText value="#{controlRedigerCV.user.localisation}" required="true" label="Adresse"/>
 
-                                        <h:outputText value="Skip to last: " />
-                                        <h:selectBooleanCheckbox value="#{profilCandidatController.skip}" />
+                                        <h:outputText value="E-mail: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.user.mail}" required="true" label="E-mail"/>
+
+                                        <h:outputText value="Téléphone: *"  style="color: #282828"/>
+                                        <p:inputMask id="Telephone" value="#{controlRedigerCV.user.telephone}" mask="(99999) 99-999-99-99" required="true"/>
+
+                                        <h:outputText value="Login: *" style="color: #282828" />
+                                        <p:inputText value="#{controlRedigerCV.user.login}" required="true" label="Login"/>
+
+                                        <h:outputText value="Mot de passe: *" style="color: #282828" />
+                                        <p:password id="Motdepasse" value="#{controlRedigerCV.user.password}" feedback="true" required="true"/>
+
+                                        <h:outputText value="Spécialité: *" style="color: #282828" />
+                                        <p:inputTextarea rows="3" cols="18" counter="display" maxlength="330" counterTemplate="{0} caractères restants." autoResize="false" required="true" value="#{controlRedigerCV.user.specialite}" placeholder="Ingénieur en génie logiciel"/>
+                                        <h:outputText id="display" style="color: #282828" />
+                                        <h:outputText value="" />
+
+                                        <h:outputText value="Date de naissance: *" style="color: #282828" />
+                                        <p:calendar id="datenaiss" value="#{controlRedigerCV.user.dateDeNaissance}" pattern="dd-MM-yyyy" mask="true" required="true" />
+
+                                        <h:outputText value="Passer à la dernière: "  style="color: #282828"/>
+                                        <h:selectBooleanCheckbox value="#{controlRedigerCV.skip}" />
                                     </h:panelGrid>
                                 </p:panel>
                             </p:tab>
-                            <p:tab id="address" title="Address">
-                                <p:panel header="Address Details">
+                            <p:tab id="address" title="Parcous académique">
+                                <p:panel header="Formation"><!--Demander 3 diplomes interessent-->
                                     <p:messages />
                                     <h:panelGrid columns="2" columnClasses="label, value">
-                                        <h:outputText value="Street: " />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.localisation}" />
+                                        <h:outputText value="Nom du diplôme: " style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.formation.nomDiplome}" />
 
-                                        <h:outputText value="Postal Code: " />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.version}" />
+                                        <h:outputText value="Université/Ecole: " style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.formation.universite}" />
 
-                                        <h:outputText value="City: " />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.localisation}" />
+                                        <h:outputText value="Année d'obtention: " style="color: #282828" />
+                                      <p:calendar id="datenaiss2" value="#{controlRedigerCV.user.dateDeNaissance}" pattern="dd-MM-yyyy" mask="true" required="true" />
+                                        
+                                        <h:outputText value="Mention: " style="color: #282828" />
+                                        <p:inputText value="#{controlRedigerCV.formation.mention}" placeholder="Assez-bien" />
 
-                                        <h:outputText value="Skip to last: " />
-                                        <h:selectBooleanCheckbox value="#{profilCandidatController.skip}" />
+                                        <h:outputText value="Passer à la dernière: " />
+                                        <h:selectBooleanCheckbox value="#{controlRedigerCV.skip}" />
                                     </h:panelGrid>
                                 </p:panel>
                             </p:tab>
+
                             <p:tab id="contact" title="Contact">
                                 <p:panel header="Contact Information">
                                     <p:messages />
                                     <h:panelGrid columns="2" columnClasses="label, value">
                                         <h:outputText value="Email: *" />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.mail}" required="true" label="Email"/>
+                                        <p:inputText value="#{controlRedigerCV.user.mail}" required="true" label="Email"/>
+
                                         <h:outputText value="Phone: " />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.telephone}"/>
+                                        <p:inputText value="#{controlRedigerCV.user.telephone}"/>
+
                                         <h:outputText value="Additional Info: " />
-                                        <p:inputText value="#{profilCandidatController.usercorrespondcandidat.specialite}"/>
+                                        <p:inputText value="#{controlRedigerCV.user.specialite}"/>
                                     </h:panelGrid>
                                 </p:panel>
                             </p:tab>
@@ -113,35 +140,45 @@
                                     <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
                                         <h:panelGrid columns="2" columnClasses="label, value">
                                             <h:outputText value="Firstname: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.nom}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.prenom}" styleClass="outputLabel"/>
+
                                             <h:outputText value="Lastname: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.prenom}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.nom}" styleClass="outputLabel"/>
+
                                             <h:outputText value="Age: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.idUtilisateur}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.dateDeNaissance}" styleClass="outputLabel"/>
                                         </h:panelGrid>
+
                                         <h:panelGrid columns="2" columnClasses="label, value">
                                             <h:outputText value="Street: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.login}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.localisation}" styleClass="outputLabel"/>
+
                                             <h:outputText value="Postal: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.version}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.telephone}" styleClass="outputLabel"/>
+
                                             <h:outputText value="City: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.localisation}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.localisation}" styleClass="outputLabel"/>
                                         </h:panelGrid>
                                         <h:panelGrid columns="2" columnClasses="label, value">
                                             <h:outputText value="Email: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.mail}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.mail}" styleClass="outputLabel"/>
+
                                             <h:outputText value="Phone " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.telephone}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.telephone}" styleClass="outputLabel"/>
+
                                             <h:outputText value="Info: " />
-                                            <h:outputText value="#{profilCandidatController.usercorrespondcandidat.specialite}" styleClass="outputLabel"/>
+                                            <h:outputText value="#{controlRedigerCV.user.specialite}" styleClass="outputLabel"/>
+
                                             <h:outputText />
                                             <h:outputText />
                                         </h:panelGrid>
                                     </h:panelGrid>
-                                    <p:commandButton value="Submit" actionListener="#{profilCandidatController.save}" update="growl" process="@this"/>
+
+                                    <p:commandButton value="Submit" actionListener="#{controlRedigerCV.save}" update="growl" process="@this"/>
                                 </p:panel>
                             </p:tab>
                         </p:wizard>
+
                     </h:form>
                     <!--rédaction CV fin-->
                 </div>
