@@ -21,27 +21,31 @@ import javax.faces.context.FacesContext;
 @Named(value = "controlRedigerCV")
 @SessionScoped
 public class controlRedigerCV implements Serializable {
+
     @Inject
     private dataAccessObject.IdaoLocal dao;
-   
+
+    private Utilisateur user = new Utilisateur();
+    private Candidat candidat = new Candidat();
+    private Profilgl profilgl = new Profilgl();
+    private Profil profil = new Profil();
+    private Materielssystemesexploitation materielssystemesexploitation = new Materielssystemesexploitation();
+    private Formation formation = new Formation();
+//    private Formation formation2 = new Formation();
+//    private Formation formation3 = new Formation();
+    private Outils outils = new Outils();
+    private Experiencesprofessionnelles experiencesprofessionnelles = new Experiencesprofessionnelles();
+    private Langages langage = new Langages();
+    private Methodologie methodologie = new Methodologie();
+    private Modelisation modelisation = new Modelisation();
+    private Bdd bdd = new Bdd();
+
+    private boolean skip;
     /**
      * Creates a new instance of controlUtilisateur
      */
     public controlRedigerCV() {
     }
-    
-     private Utilisateur user = new Utilisateur();
-     private Candidat candidat = new Candidat();
-     private Profilgl profilgl=new Profilgl();
-     private Profil profil=new Profil();
-     private Materielssystemesexploitation materielssystemesexploitation=new Materielssystemesexploitation();
-     private Formation formation=new Formation();
-     private Outils outils=new Outils();
-     private Experiencesprofessionnelles experiencesprofessionnelles=new Experiencesprofessionnelles();
-     private Langages langage=new Langages();
-     private Methodologie methodologie=new Methodologie();
-     private Modelisation modelisation=new Modelisation();
-     private Bdd bdd=new Bdd();
 
     public Profilgl getProfilgl() {
         return profilgl;
@@ -122,7 +126,7 @@ public class controlRedigerCV implements Serializable {
     public void setLangues(Langues langues) {
         this.langues = langues;
     }
-     private Langues langues=new Langues();
+    private Langues langues = new Langues();
 
     public Candidat getCandidat() {
         return candidat;
@@ -139,40 +143,36 @@ public class controlRedigerCV implements Serializable {
     public void setCandidat(Candidat candidat) {
         this.candidat = candidat;
     }
-     
-    private boolean skip;
-     
+
     public Utilisateur getUser() {
         return user;
     }
- 
+
     public void setUser(Utilisateur user) {
         this.user = user;
     }
-     
-    public void save() {        
+
+    public void save() {
         //----------------Les insertions se feront dans cette partie-----------------------------------------------------------------
         FacesMessage msg = new FacesMessage("Successful", "Bonjour :" + user.getNom());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-     
+
     public boolean isSkip() {
         return skip;
     }
- 
+
     public void setSkip(boolean skip) {
         this.skip = skip;
     }
-     
+
     public String onFlowProcess(FlowEvent event) {
-        if(skip) {
+        if (skip) {
             skip = false;   //reset in case user goes back
             return "confirm";
-        }
-        else {
+        } else {
             return event.getNewStep();
         }
     }
-    
-}
 
+}
