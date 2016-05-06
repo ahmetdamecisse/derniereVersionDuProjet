@@ -120,7 +120,7 @@
                                             <f:selectItem itemLabel="Bien" itemValue="Bien" />
                                             <f:selectItem itemLabel="Très Bien" itemValue="Très Bien" />
                                         </p:selectOneMenu>
-                                        
+
                                     </h:panelGrid>
                                 </p:panel>
                                 <p:panel header="Diplôme 2">
@@ -142,10 +142,10 @@
                                             <f:selectItem itemLabel="Bien" itemValue="Bien" />
                                             <f:selectItem itemLabel="Très Bien" itemValue="Très Bien" />
                                         </p:selectOneMenu>
-                                        
+
                                     </h:panelGrid>
                                 </p:panel>
-                                 <p:panel header="Diplôme 3">
+                                <p:panel header="Diplôme 3">
                                     <p:messages />
                                     <h:panelGrid columns="2" columnClasses="label, value">
                                         <h:outputText value="Nom du diplôme: *" style="color: #282828"/>
@@ -177,7 +177,7 @@
                                     <h:panelGrid columns="2" columnClasses="label, value">
                                         <h:outputText value="Nombre d'années d'expériences: *" style="color: #282828"/>
                                         <p:spinner id="nbreanneesexperience" value="#{controlRedigerCV.profil.nombreAnneesExperience}" min="0" max="20" required="true" />
-                                       
+
                                         <h:outputText value="Principales compétences: *" style="color: #282828"/>
                                         <p:inputTextarea rows="6" cols="20" counter="display4" maxlength="330" counterTemplate="{0} caractères restants." autoResize="false" required="true" value="#{controlRedigerCV.profil.principalesCompetences}" placeholder="Exemple : 1 Conception, Analyse, Coordination de projet,  Recettes, Bases de données. 2 Sciences de l’information et du système"/>
                                         <h:outputText id="display4" style="color: #282828" />
@@ -204,7 +204,7 @@
                                         </p:selectOneMenu>
 
                                         <h:outputText value="Français: *" style="color: #282828"/>
-                                        <p:inputText value="#{controlRedigerCV.langues.nom}" required="true" label="Email"/>
+                                        <p:inputText value="#{controlRedigerCV.langues.nom}" required="true" label="Français"/>
 
                                         <h:outputText value="Niveau: *" style="color: #282828"/>
                                         <p:selectOneMenu id="console2" value="#{controlRedigerCV.langues.niveau}" style="width:170px" required="true">
@@ -230,41 +230,212 @@
                             </p:tab>
 
                             <p:tab id="competencestechniques" title="Compétences techniques">
-                                <p:panel header="Languages">
+                                <p:panel header="Langages">
                                     <p:messages />
-                                    <h:panelGrid columns="2" columnClasses="label, value">
-                                        
-                                    </h:panelGrid>
+                                    <p:panelGrid columns="4" layout="grid">
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.langage.domaine}" required="true" label="nom" placeholder="PHP"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolel1" value="#{controlRedigerCV.langage.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.langage.domaine}" required="true" label="nom" placeholder="JEE"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolel2" value="#{controlRedigerCV.langage.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.langage.domaine}" required="true" label="nom" placeholder="XML"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolel3" value="#{controlRedigerCV.langage.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+                                    </p:panelGrid>
                                 </p:panel>
                                 <p:panel header="Outils">
                                     <p:messages />
-                                    <h:panelGrid columns="2" columnClasses="label, value">
-                                        
-                                    </h:panelGrid>
+                                    <p:panelGrid columns="4" layout="grid">
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.outils.domaine}" required="true" label="nom" placeholder="maven"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell1" value="#{controlRedigerCV.outils.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.outils.domaine}" required="true" label="nom" placeholder="svn"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell2" value="#{controlRedigerCV.outils.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.outils.niveau}" required="true" label="nom" placeholder="Tomcat"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell33" value="#{controlRedigerCV.langage.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                    </p:panelGrid>
                                 </p:panel>
                                 <p:panel header="Méthodoogies">
                                     <p:messages />
-                                    <h:panelGrid columns="2" columnClasses="label, value">
-                                        
-                                    </h:panelGrid>
+                                    <p:panelGrid columns="4" layout="grid">
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.methodologie.domaine}" required="true" label="nom" placeholder="CMMI"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolelll1" value="#{controlRedigerCV.methodologie.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.methodologie.domaine}" required="true" label="nom" placeholder="CMMI"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolelll2" value="#{controlRedigerCV.methodologie.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.methodologie.domaine}" required="true" label="nom" placeholder="CMMI"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell3" value="#{controlRedigerCV.methodologie.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+                                    </p:panelGrid>
                                 </p:panel>
                                 <p:panel header="Modélisations">
                                     <p:messages />
-                                    <h:panelGrid columns="2" columnClasses="label, value">
-                                        
-                                    </h:panelGrid>
+                                    <p:panelGrid columns="4" layout="grid">
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.modelisation.domaine}" required="true" label="nom" placeholder="UML"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolelllll2" value="#{controlRedigerCV.modelisation.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.modelisation.domaine}" required="true" label="nom" placeholder="MERISE"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolellll2" value="#{controlRedigerCV.modelisation.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.modelisation.domaine}" required="true" label="nom" placeholder="Talbot et Rivard"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolellll3" value="#{controlRedigerCV.modelisation.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+                                    </p:panelGrid>
                                 </p:panel>
                                 <p:panel header="Bases de données">
                                     <p:messages />
-                                    <h:panelGrid columns="2" columnClasses="label, value">
-                                        
-                                    </h:panelGrid>
+                                    <p:panelGrid columns="4" layout="grid">
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.bdd.domaine}" required="true" label="nom" placeholder="SQL"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell5" value="#{controlRedigerCV.bdd.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.bdd.domaine}" required="true" label="nom" placeholder="PLSQL"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell55" value="#{controlRedigerCV.bdd.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.bdd.domaine}" required="true" label="nom" placeholder="SQL Server"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell555" value="#{controlRedigerCV.bdd.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+                                    </p:panelGrid>
                                 </p:panel>
                                 <p:panel header="Matériels et Systemes d'exploitation">
                                     <p:messages />
-                                    <h:panelGrid columns="2" columnClasses="label, value">
-                                        
-                                    </h:panelGrid>
+                                    <p:panelGrid columns="4" layout="grid">
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.materielssystemesexploitation.domaine}" required="true" label="nom" placeholder="Lunux"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell6" value="#{controlRedigerCV.materielssystemesexploitation.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.materielssystemesexploitation.domaine}" required="true" label="nom" placeholder="Windows"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell686" value="#{controlRedigerCV.materielssystemesexploitation.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+
+                                        <h:outputText value="Nom: *" style="color: #282828"/>
+                                        <p:inputText value="#{controlRedigerCV.materielssystemesexploitation.domaine}" required="true" label="nom" placeholder="MAC OS"/>
+
+                                        <h:outputText value="Niveau: *" style="color: #282828"/>
+                                        <p:selectOneMenu id="consolell66" value="#{controlRedigerCV.materielssystemesexploitation.niveau}" style="width:170px" required="true">
+                                            <f:selectItem itemLabel="Connaissance" itemValue="1" />
+                                            <f:selectItem itemLabel="Maîtrise" itemValue="2" />
+                                            <f:selectItem itemLabel="Expert" itemValue="3" />
+                                        </p:selectOneMenu>
+                                    </p:panelGrid>
                                 </p:panel>
                             </p:tab>
 
@@ -307,19 +478,13 @@
                             </p:tab>
 
                             <p:tab id="cv" title="CV">
-                                <p:panel header="Votre CV">
+                                <p:panel header="Curriculum Vitae">
                                     <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
-                                        <h:panelGrid columns="2" columnClasses="label, value">
-                                            <h:outputText value="Firstname: " />
-                                            <h:outputText value="#{controlRedigerCV.user.prenom}" styleClass="outputLabel"/>
-
-                                            <h:outputText value="Lastname: " />
-                                            <h:outputText value="#{controlRedigerCV.user.nom}" styleClass="outputLabel"/>
-
-                                            <h:outputText value="Age: " />
-                                            <h:outputText value="#{controlRedigerCV.user.dateDeNaissance}" styleClass="outputLabel"/>
+                                        <h:panelGrid columns="2">
+                                            <f:facet name="header1">
+                                                <p:graphicImage name="resources/images/atoslogo.jpg" />
+                                            </f:facet>
                                         </h:panelGrid>
-
                                         <h:panelGrid columns="2" columnClasses="label, value">
                                             <h:outputText value="Street: " />
                                             <h:outputText value="#{controlRedigerCV.user.localisation}" styleClass="outputLabel"/>
@@ -330,18 +495,10 @@
                                             <h:outputText value="City: " />
                                             <h:outputText value="#{controlRedigerCV.user.localisation}" styleClass="outputLabel"/>
                                         </h:panelGrid>
-                                        <h:panelGrid columns="2" columnClasses="label, value">
-                                            <h:outputText value="Email: " />
-                                            <h:outputText value="#{controlRedigerCV.user.mail}" styleClass="outputLabel"/>
-
-                                            <h:outputText value="Phone " />
-                                            <h:outputText value="#{controlRedigerCV.user.telephone}" styleClass="outputLabel"/>
-
-                                            <h:outputText value="Info: " />
-                                            <h:outputText value="#{controlRedigerCV.user.specialite}" styleClass="outputLabel"/>
-
-                                            <h:outputText />
-                                            <h:outputText />
+                                        <h:panelGrid columns="2" >
+                                            <f:facet name="header2">
+                                                <p:graphicImage name="resources/images/etudiant.jpg" />
+                                            </f:facet>
                                         </h:panelGrid>
                                     </h:panelGrid>
 
@@ -349,7 +506,6 @@
                                 </p:panel>
                             </p:tab>
                         </p:wizard>
-
                     </h:form>
                     <!--rédaction CV fin-->
                 </div>
