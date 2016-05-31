@@ -19,13 +19,7 @@
             <h:outputStylesheet name="bootstrap/css/bootstrap.min.css" />
             <h:outputStylesheet name="bootstrap/css/responsive.css" />
             <h:outputStylesheet name="css/dashboard.css" />
-            <!--            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-                        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-                        <h:outputScript name="bootstrap/js/bootstrap.min.js"/>-->
             <h:outputStylesheet library="css" name="style.css"/>
-            <!--<h:outputScript library="js" name="common.js" />-->
         </f:facet>
         <f:facet name="last">
             <h:outputStylesheet name="css/font-awesome.css" />
@@ -37,6 +31,9 @@
                 <a>
                     <img style="max-width:150px" src="resources/images/atoslogo.jpg"></img>
                 </a>
+                <a>
+                    <img style="max-width:150px; float: right" src="resources/images/EspaceRecrutement.jpg"></img>
+                </a>
                 <h:form>  
                     <p:growl id="messages"/>
                     <p:menubar styleClass="menubar" style="background-image:url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRA7E2PTLUWb4du8CcYnPNJZMCh_poQeBvG0NSKfvGQcMLJpBpxmbnWVd-r)">
@@ -45,8 +42,10 @@
                         <p:menuitem value="Offres d'emploi" url="" icon="ui-icon-home" style="color:white"/>
                         <p:menuitem value="Contact" url="" icon="ui-icon-contact" style="color:white"/>
                         <f:facet name="options">
-                            <p:commandButton  value="Créer un compte" action="inscription" icon="ui-icon-log" style="margin-right:10px; background: #ffffff; font-size: 15px;"/>
-                            <p:commandButton value="Se connecter" action="connexion" icon="ui-icon-extlink" style="background: #ffffff; font-size: 15px"/>
+                            <p:commandButton value="Se déconnecter" action="index" icon="ui-icon-extlink" style="background: #ffffff; font-size: 15px"/>
+                        </f:facet>
+                        <f:facet name="options">
+                            <p:inputText style="margin-right:10px" placeholder="Search"/>
                         </f:facet>
                     </p:menubar>
                 </h:form>
@@ -97,7 +96,7 @@
                     <div class="col-sm-9">
                         <h:form>
                             <p:growl id="msgs" showDetail="true" />  
-                            <p:panel  id="basic1" header="Formulaire Offres D'emploi"  styleClass="redColoredPanel" style="margin-bottom:20px; text-align: center; background: buttonface">
+                            <p:panel  id="basic1" header="Formulaire Offres D'emploi"  styleClass="redColoredPanel" style="margin-bottom:20px; text-align: center">
                                 <div>
                                     <h:form> <br/> 
                                         <div style="text-align: justify">
@@ -119,7 +118,7 @@
                                         </div><br/>
                                         <div  style="text-align: justify">
                                             <h:outputText value="Profil recherché :" style="margin-right: 87px" />
-                                            <p:inputText style="width: 500px; height: 35px"/> <br/>
+                                            <p:inputTextarea style="width: 500px; height: 35px"/> <br/>
                                         </div><br/>
                                         <div  style="text-align: justify">
                                             <h:outputText value="Diplome demandés:" style="margin-right: 65px" />
@@ -167,10 +166,10 @@
                                         </div><br/>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <p:commandButton value="Valider" style="min-width: 60px"/>
+                                                <p:commandButton value="Valider" style="min-width: 200px"/>
                                             </div> 
                                             <div class="col-sm-6">
-                                                <p:commandButton value="Annuler" style="min-width: 60px"/>
+                                                <p:commandButton value="Annuler" style="min-width: 200px"/>
                                             </div> <br/>
                                         </div>
                                     </h:form>

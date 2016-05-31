@@ -45,17 +45,11 @@
 
         <div class="container">
             <div id='logo'>
-
-
-
                 <a>
                     <img style="max-width:150px" src="resources/images/atoslogo.jpg">
-                        
+
                     </img>
-
-                </a>
-
-
+                </a>  
                 <h:form>  
                     <p:growl id="messages"/>
                     <p:menubar styleClass="menubar" style="background-image:url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRA7E2PTLUWb4du8CcYnPNJZMCh_poQeBvG0NSKfvGQcMLJpBpxmbnWVd-r)">
@@ -65,21 +59,21 @@
                         <p:menuitem value="Contact" url="" icon="ui-icon-contact" style="color:white"/>
                         <f:facet name="options">
                             <p:commandButton  value="Se déconnecter" action="index" icon="ui-icon-log" style="margin-right:10px; background: #ffffff; font-size: 15px;"/>
-                            
                         </f:facet>
                     </p:menubar>
                 </h:form>
             </div>
             <div style="background-color: #ffffff" >
                 <div class="row content panel-heading">
+                    <h:form>
                     <div class="col-sm-3">
-                        <h:form>
+                        
                             <p:growl id="msgs" showDetail="true" />
-
+                            
                             <p:panel id="basic" header="Critères de recherche" style="margin-bottom:20px;background: #ffffff"><br/>
                                 <h:panelGrid columns="2" cellpadding="10" style="background: #ffffff">
                                     <h:form>
-                                        <p:outputLabel value="FILIATION" style="font-size: 12px" />
+                                        <p:outputLabel value="FILIATION" style="font-size: 12px"/>
                                         <p:inputText value="#{userWizard.user.filiation}" required="true" label="filiation"/><br/><br/>
                                         <p:outputLabel value="COMPETENCES FONCTIONNELLES" style="font-size: 12px" />
                                         <p:inputText value="#{userWizard.user.competenceT}" required="true" label="competenceT"/><br/> <br/> 
@@ -93,72 +87,43 @@
                                     </h:form>
                                 </h:panelGrid>
                             </p:panel>
-                        </h:form> 
+                        
                     </div>
                     <div class="col-sm-9">
-<!--                        <h:form>
-                            <p:growl id="msgs" showDetail="true" />
+                         
+                            <p:dataScroller value="#{controlUtilisateur.allUsers()}" var="car" chunkSize="10" style="background: #ffffff">
+                                <f:facet name="header">
+                                    Liste des CV
+                                </f:facet>
 
-                            <p:panel id="basic" header="Liste des CV" style="margin-bottom:20px;background: #ffffff"><br/>
-                                <h:panelGrid columns="2" cellpadding="10" style="background: #ffffff">
-                                    <h:form id="form">
-                                        <p:dataGrid  id="table" var="car" value="#{carBean.cars}" columns="2" rows="6">
-                                            <p:column>
-                                                <p:panel header="#{car.model}">
-                                                    <h:panelGrid columns="1">
-                                                        <p:graphicImage value="resources/images/#{car.manufacturer}.jpg"/>
-                                                        <h:outputText value="#{car.year}"/>
-                                                        <h:outputText value="#{car.specialite}"/>
-                                                    </h:panelGrid>
-                                                    <h:commandLink>
-                                                        <p:graphicImage value="/resources/images/pdf.jpg" />
-                                                        <p:dataExporter type="pdf" target="table" fileName="cars" pageOnly="true" />
-                                                    </h:commandLink>
+                                <h:panelGrid columns="2" style="width:100%; background: #ffffff" columnClasses="logo,detail">
+                                    <p:outputPanel>
+                                        <h:panelGrid columns="30">
+                                            <p:graphicImage value="resources/images/cv.jpg"/> 
 
-                                                </p:panel>
-                                            </p:column>
-                                        </p:dataGrid>
-                                    </h:form>
+                                            <h:outputText value="#{car.nom}" style="font-weight: bold"/>
 
+                                            <p>&nbsp;</p>
+                                            <h:outputText value="#{car.prenom}" style="font-weight: bold"/>
+
+                                            <p>&nbsp;</p>
+                                            <h:outputText value="#{car.localisation}" style="font-weight: bold"/>
+
+                                            <p>&nbsp;</p>
+                                            <h:outputText value="#{car.specialite}" style="font-weight: bold"/><br/>
+                                            <h:commandLink>
+                                                <p:graphicImage value="/resources/images/pdf.jpg" />
+                                                <p:dataExporter type="pdf" target="table" fileName="cars" pageOnly="true" />
+                                            </h:commandLink>
+                                        </h:panelGrid>
+
+                                        <hr></hr>
+                                    </p:outputPanel>
                                 </h:panelGrid>
-                            </p:panel>
-                        </h:form> -->
-
-<h:form> 
-    <p:dataScroller value="#{controlUtilisateur.allUsers()}" var="car" chunkSize="10" style="background: #ffffff">
-        <f:facet name="header">
-            Liste des CV
-        </f:facet>
-
-        <h:panelGrid columns="2" style="width:100%; background: #ffffff" columnClasses="logo,detail">
-            <p:outputPanel>
-                <h:panelGrid columns="30">
-                    <p:graphicImage value="resources/images/cv.jpg"/> 
-
-                    <h:outputText value="#{car.nom}" style="font-weight: bold"/>
-
-                    <p>&nbsp;</p>
-                    <h:outputText value="#{car.prenom}" style="font-weight: bold"/>
-
-                    <p>&nbsp;</p>
-                    <h:outputText value="#{car.localisation}" style="font-weight: bold"/>
-
-                    <p>&nbsp;</p>
-                    <h:outputText value="#{car.specialite}" style="font-weight: bold"/><br/>
-                    <h:commandLink>
-                        <p:graphicImage value="/resources/images/pdf.jpg" />
-                        <p:dataExporter type="pdf" target="table" fileName="cars" pageOnly="true" />
-                    </h:commandLink>
-                </h:panelGrid>
-
-                <hr></hr>
-            </p:outputPanel>
-        </h:panelGrid>
-    </p:dataScroller>
-</h:form>
-
-
+                            </p:dataScroller>
+                        
                     </div>
+                        </h:form>
 
                 </div>
 

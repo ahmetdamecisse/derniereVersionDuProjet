@@ -154,7 +154,7 @@ public class controlRedigerCV implements Serializable {
 
     public void save() {
         //----------------Les insertions se feront dans cette partie-----------------------------------------------------------------
-        FacesMessage msg = new FacesMessage("Successful", "Bonjour :" + user.getNom());
+        FacesMessage msg = new FacesMessage("Successful", "Bonjour :" + user.getPrenom()+" "+"votre cv a été crée avec succès");
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
